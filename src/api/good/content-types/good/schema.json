@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "goods",
+  "info": {
+    "singularName": "good",
+    "pluralName": "goods",
+    "displayName": "Товар"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "default": "Наименование"
+    },
+    "Description": {
+      "type": "richtext",
+      "default": "Описание"
+    },
+    "Price": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "Photos": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": false
+    },
+    "kategoriis": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "tovars"
+    }
+  }
+}
